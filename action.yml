@@ -1,0 +1,21 @@
+name: Build Docs with Docker
+description: Build documentation artifacts
+branding:
+  icon: book-open
+  color: purple
+
+inputs:
+  docker_version: # Writerside docker image
+    description: 'The version of Docker to use'
+    required: true
+    default: '2.1.1435-p3718'
+
+outputs:
+  docker_version: # Writerside docker image
+    description: 'The time we build your docs'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.docker_version }}
